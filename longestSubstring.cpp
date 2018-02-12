@@ -54,7 +54,7 @@ bool testFunc() {
 	if (longestSubstr("abcabcbb")!=3) return false; //sample testcase
 	if (longestSubstr("pwwkew")!=3) return false; //non-repetitive characters
 	if (longestSubstr("a12@#")!=5) return false; //special characters
-	if (longestSubstr("Hi nam")!=-1) return false; //space character - treates as invalid
+	if (longestSubstr("Hi nam")!=-1) return false; //space character - invalid
 	if (longestSubstr("ABCabc")!=6) return false; //case sensitivity - valid
 	
 	return true;
