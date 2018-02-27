@@ -5,11 +5,11 @@ Given an input string and a dictionary of words, find out if the input string ca
 For example, consider the following dictionary: { pear, salmon, foot, prints, footprints, leave, you, sun, girl, enjoy },
 
 Examples:
-Given the string “youenjoy”, 
-Output: True (The string can be segmented as “you enjoy”)
+Given the string â€œyouenjoyâ€,Â 
+Output: True (The string can be segmented as â€œyou enjoyâ€)
 
-Input: “youleavefootprints”,
-Output: True (The string can be segmented as “you leave footprints” or “you leave foot prints”)
+Input: â€œyouleavefootprintsâ€,
+Output: True (The string can be segmented as â€œyou leave footprintsâ€ or â€œyou leave foot printsâ€)
 
 Input:salmonenjoyapples
 Output: False
@@ -75,12 +75,11 @@ bool compare(string a, string b) {
 	return a.length() > b.length();
 }
 
-bool wordBreak(string s, string w[], int n){
-	if (n==0) return false;
-	if (s=="") return true;
+int wordBreak(string s, string w[], int n){
+	if (n==0 || s=="") return -1;
 	int i=0;
 	while(w[i].length() > s.length() && i<n) i++;
-	if (i==n) return false;
+	if (i==n) return 0;
 	
 	while(i<n && s!="") {
 		//find if w[i] is present in s
@@ -94,12 +93,12 @@ bool wordBreak(string s, string w[], int n){
 		i++;
 	}
 	
-	if (s=="") return true;
-	return false;
+	if (s=="") return 1;
+	return 0;
 }
 
 bool test(string w[],int n) {
-	if (wordBreak("", w, n)!=1) return false; //null case
+	if (wordBreak("", w, n)!=-1) return false; //null case
 	if (wordBreak("youleavefootprints", w, n)!=1) return false; //words present
 	if (wordBreak("heyyou", w, n)!=0) return false; //words not present
 	if (wordBreak("penpen", w, n)!=1) return false; //multiple existence
@@ -112,12 +111,9 @@ int main(){
 	string w[] = { "pencil", "pen", "pear", "salmon", "foot", "prints", "footprints", "leave", "you", "sun", "girl", "enjoy" };
 	int n=sizeof(w)/sizeof(w[0]);
 	sort(w, w+n, compare);
-//	for (int j=0;j<n;j++) cout<<w[j]<<" ";
-//	cout<<"\n";
 	string input;
 	cin>>input;
 	cout<<wordBreak(input, w,n)<<endl;
-	
 	cout<<test(w,n);
 	return 0;
 }
