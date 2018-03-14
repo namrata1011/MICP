@@ -44,21 +44,21 @@ bool t1(){
 	//empty trees
 	struct node *T=NULL;	
 	struct node *S=NULL;
-	return (isSubtree(T,S)?true:false);
+	return isSubtree(T,S);
 }
 
 bool t2(){
 	//empty subtree
 	struct node *T=newNode(1);	
 	struct node *S=NULL;
-	return (isSubtree(T,S)?true:false);
+	return isSubtree(T,S);
 }
 
 bool t3(){
 	//empty tree
 	struct node *S=newNode(1);	
 	struct node *T=NULL;
-	return (isSubtree(T,S)?false:true);
+	return (!isSubtree(T,S));
 }
 
 bool t4(){
@@ -70,7 +70,7 @@ bool t4(){
 	T->right=newNode(3);
 	T->left->left=newNode(4);
 	T->left->right=newNode(5);
-	return (isSubtree(T,S)?false:true);
+	return (!isSubtree(T,S));
 }
 
 bool t5(){
@@ -82,7 +82,7 @@ bool t5(){
 	T->right=newNode(3);
 	T->left->left=newNode(4);
 	T->left->right=newNode(5);
-	return (isSubtree(S,T)?false:true);
+	return (!isSubtree(S,T));
 }
 
 bool t6(){
@@ -98,7 +98,7 @@ bool t6(){
 	T->right=newNode(3);
 	T->left->left=newNode(4);
 	T->left->right=newNode(5);
-	return (isSubtree(T,S)?true:false);
+	return isSubtree(T,S);
 }
 
 bool t7(){
@@ -112,11 +112,11 @@ bool t7(){
 	T->right=newNode(3);
 	T->left->left=newNode(4);
 	T->left->right=newNode(5);
-	return (isSubtree(T,S)?false:true);
+	return (!isSubtree(T,S));
 }
 
 bool test() {
-	return (t1()&&t2()&&t3()&&t4()&&t5()&&t6()&&t7())?true:false;
+	return t1()&&t2()&&t3()&&t4()&&t5()&&t6()&&t7();
 }
 
 int main() {
